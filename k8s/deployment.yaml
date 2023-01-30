@@ -18,9 +18,9 @@ spec:
           - containerPort: 5432
           env:
           - name: POSTGRES_DB
-            value: "conversaotemperatura"
+            value: "kubenews"
           - name: POSTGRES_USER
-            value: "conversaotemperatura"
+            value: "kubenews"
           - name: POSTGRES_PASSWORD
             value: "Pg#123"
 
@@ -54,14 +54,14 @@ spec:
     spec:
       containers:
         - name: web
-          image: fjr80/conversao-temperatura:v1
+          image: fjr80/kube-news:v1
           ports:
           - containerPort: 8080
           env:
           - name: DB_DATABASE
-            value: "conversaotemperatura"
+            value: "kubenews"
           - name: DB_USERNAME
-            value: "conversaotemperatura"
+            value: "kubenews"
           - name: DB_PASSWORD
             value: "Pg#123"
           - name: DB_HOST
@@ -77,5 +77,4 @@ spec:
   ports:
     - port: 80
       targetPort: 8080
-      nodePort: 30000
-  type: NodePort
+  type: LoadBalancer
